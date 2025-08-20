@@ -4,9 +4,9 @@ import dnf
 import yaml
 from pathlib import Path
 import re
-import files
 from subprocess import check_output, run
 import base64
+from . import files
 
 logs=True
 CONFIG_DIR = "/home/maru/.config/nknk/"
@@ -39,6 +39,8 @@ def dnf_get_installed():
     base = dnf.Base()
     base.read_all_repos()
     base.fill_sack()
+    if base.sack is None:
+        raise RuntimeError("err. packages not read")
     installed_query = base.sack.query().installed()
     all_installed = {pkg.name: pkg for pkg in installed_query}
     packages = []
@@ -95,7 +97,7 @@ def dnf_prune(config_path=CONFIG_FILE):
     base = dnf.Base()
     base.read_all_repos()
     base.fill_sack()
-    installed_query = base.sack.query().installed()
+    installed_query = base.sack.query().installed() # type: ignore
     installed_pkgs = {pkg.name for pkg in installed_query}
 
     to_remove = installed_pkgs - config_pkgs
