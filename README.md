@@ -2,4 +2,5 @@
 Wraps around dnf so you can version control it!  
 rhel based only, must be same rhel based distro ex: nobara->nobara/rhel8->rhel8                       
 # Install
-`pip install nkdw_maru`
+~~pip install nkdw_maru~~
+don't use the pypi, build it yourself with poetry
