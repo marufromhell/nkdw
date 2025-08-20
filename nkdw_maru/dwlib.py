@@ -9,8 +9,9 @@ import base64
 from . import files
 
 logs=True
-CONFIG_DIR = "/home/maru/.config/nknk/"
-CONFIG_FILE = "/home/maru/.config/nknk/nkdw.yaml"
+HOME = os.path.expanduser("~")
+CONFIG_DIR = os.path.join(HOME, ".config", "nknk")
+CONFIG_FILE = os.path.join(CONFIG_DIR, "nkdw.yaml")
 
 #
 # DOES NOT DOWNSYNC VERSIONS YET

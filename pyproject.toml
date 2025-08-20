@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nkdw_maru"
-version = "2.0.0"
+version = "2.0.1"
 description = "File and package backup for dnf and flatpak. Saves to a single yaml file for the lulz"
 authors = ["maru <maru@lithium-dev.xyz>"]
 license = "GPL-3.0-or-later"
