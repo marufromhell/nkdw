@@ -1,6 +1,14 @@
-name: Python Poetry Action
-  uses: abatilo/actions-poetry@v3.0.0
-  with:
-    poetry-version: '1.8.5' # replace with desired version or remove for latest
-    poetry-plugins: |
-      poetry-plugin-example
+name: Python package
+on:
+  push:
+    tags:
+      - "v*.*.*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v2.1
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
