@@ -1,5 +1,5 @@
 name: Python Poetry Action
-  uses: abatilo/actions-poetry
+  uses: abatilo/actions-poetry@v3.0.0
   with:
     poetry-version: '1.8.5' # replace with desired version or remove for latest
     poetry-plugins: |
